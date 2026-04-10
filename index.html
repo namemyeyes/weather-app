@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Weather app</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="./assets/images/logo.svg" alt="logo">
+      </div>
+
+      <div class="units-container">
+        <button class="units-button">
+          <img src="./assets/images/icon-units.svg" alt="">
+          Units
+          <img src="./assets/images/icon-dropdown.svg" alt="">
+          <span class="arrow"></span>
+        </button>
+        <div class="dropdown-menu" id="unitsDropdown">
+          <div class="dropdown-quick-switch">
+            <span>Switch to Imperial</span>
+            <label class="switch">
+              <input type="checkbox" id="systemToggle">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="dropdown-section">
+            <span class="section-title">Temperature</span>
+            <div class="option active" data-unit="celsius">
+              <span>Celsius (°C)</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+            <div class="option" data-unit="fahrenheit">
+              <span>Fahrenheit (°F)</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+          </div>
+
+          <div class="dropdown-section">
+            <span class="section-title">Wind Speed</span>
+            <div class="option active" data-unit="kmh">
+              <span>km/h</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+            <div class="option" data-unit="mph">
+              <span>mph</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+          </div>
+
+          <div class="dropdown-section">
+            <span class="section-title">Precipitation</span>
+            <div class="option active" data-unit="mm">
+              <span>Millimeters (mm)</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+            <div class="option" data-unit="inch">
+              <span>Inches (in)</span>
+              <span class="check"><img src="./assets/images/icon-checkmark.svg" alt="selected"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="errorState" class="error-container" style="display: none;">
+    <div class="error-content">
+      <div><img src="./assets/images/icon-error.svg" alt=""></div>
+      <h2 class="error-title">Something went wrong</h2>
+      <p class="error-text">We couldn't connect to the server (API error). Please try again in a few moments.</p>
+      <button class="retry-button" onclick="location.reload()">
+        <img src="./assets/images/icon-retry.svg" alt="" class="retry-icon">
+        Retry
+      </button>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="search-section">
+      <section class="header-content">
+        <h1 class="main-title">How's the sky looking today?</h1>
+        <div class="search-container-main">
+          <div class="search-wrapper">
+            <span class="search-icon-box">
+              <img src="./assets/images/icon-search.svg" alt="">
+            </span>
+            <input type="text" class="search-input" placeholder="Search for a place...">
+            <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+          </div>
+          <button type="submit" class="search-button">Search</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="main-content" style="display: none;">
+      <div class="left-content">
+        <div class="weather">
+          <div class="weather-main-row">
+            <div class="location-group">
+              <h2 class="city-name"></h2>
+              <p class="current-date"></p>
+            </div>
+            <div class="temp-condition-wrapper">
+              <img src="" alt="" class="weather-icon-main">
+              <span class="main-temp"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-descriptions">
+          <div class="desc-card">
+            <span class="desc-label">Feels like</span>
+            <span class="desc-value"></span>
+          </div>
+          <div class="desc-card">
+            <span class="desc-label">Humidity</span>
+            <span class="desc-value"></span>
+          </div>
+          <div class="desc-card">
+            <span class="desc-label">Wind</span>
+            <span class="desc-value"></span>
+          </div>
+          <div class="desc-card">
+            <span class="desc-label">Precipitation</span>
+            <span class="desc-value"></span>
+          </div>
+        </div>
+
+        <div class="forecast-section">
+          <h3>Daily forecast</h3>
+          <div class="weather-forecast">
+            </div>
+        </div>
+      </div>
+
+      <div class="right-content">
+        <div class="right-header">
+          <h3 class="section-title-small">Hourly Forecast</h3>
+          <div class="day-dropdown">
+            <button class="dropdown-btn">
+              <span id="currentDayLabel">Monday</span> 
+              <span><img src="./assets/images/icon-dropdown.svg"></span>
+            </button>
+            <ul class="dropdown-menu" id="dayMenu">
+              <li data-index="0" class="active">Monday</li>
+              <li data-index="1">Tuesday</li>
+              <li data-index="2">Wednesday</li>
+              <li data-index="3">Thursday</li>
+              <li data-index="4">Friday</li>
+              <li data-index="5">Saturday</li>
+              <li data-index="6">Sunday</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hourly-container" id="hourlyContainer">
+           </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
