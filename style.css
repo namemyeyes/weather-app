@@ -635,12 +635,9 @@ input:checked+.slider:before {
     margin-bottom: 0.8rem; 
 }
 
-/* --- FULL RESPONSIVE OVERHAUL --- */
-
-/* 1. Планшеты и ноуты (до 1024px / 64rem) */
 @media screen and (max-width: 64rem) {
     .main-content {
-        grid-template-columns: 1fr; /* Левая и правая части встают в одну колонку */
+        grid-template-columns: 1fr; 
         gap: 2rem;
     }
 
@@ -649,27 +646,24 @@ input:checked+.slider:before {
     }
 }
 
-/* 2. Мобильные устройства (до 768px / 48rem) */
 @media screen and (max-width: 48rem) {
     
-    /* ШАПКА */
     header .container {
         padding: 1.5rem 0;
         justify-content: space-between;
     }
 
     .logo img {
-        width: 8rem; /* Чуть поменьше для мобилок */
+        width: 8rem; 
     }
 
-    /* ЗАГОЛОВОК И ПОИСК */
     .header-content {
         margin: 1.5rem 0 2.5rem;
         text-align: left;
     }
 
     .main-title {
-        font-size: 2.5rem; /* Огромный заголовок по дизайну */
+        font-size: 2.5rem; 
         line-height: 1.1;
         margin-bottom: 1.5rem;
     }
@@ -685,9 +679,8 @@ input:checked+.slider:before {
         font-size: 1rem;
     }
 
-    /* ГЛАВНАЯ КАРТОЧКА (С ФОНОМ) */
     .weather {
-        background-image: url('./assets/images/bg-today-small.svg'); /* Твой мобильный фон */
+        background-image: url('./assets/images/bg-today-small.svg'); 
         background-size: cover;
         background-position: center;
         padding: 2.5rem 1.25rem;
@@ -714,7 +707,6 @@ input:checked+.slider:before {
         height: 6.5rem;
     }
 
-    /* ХАРАКТЕРИСТИКИ (2 В РЯД) */
     .weather-descriptions {
         display: grid !important;
         grid-template-columns: 1fr 1fr;
@@ -730,10 +722,9 @@ input:checked+.slider:before {
         font-size: 1.5rem;
     }
 
-    /* DAILY FORECAST (3 В РЯД) */
     .weather-forecast {
         display: grid !important;
-        grid-template-columns: repeat(3, 1fr); /* 3 колонки как ты хотел */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 0.75rem;
     }
 
@@ -746,7 +737,6 @@ input:checked+.slider:before {
         width: 2.5rem;
     }
 
-    /* HOURLY (ПРАВАЯ ПАНЕЛЬ) */
     .right-content {
         background: transparent;
         border: none;
@@ -769,7 +759,6 @@ input:checked+.slider:before {
     }
 }
 
-/* 3. Очень маленькие экраны (до 375px / 23.5rem) */
 @media screen and (max-width: 23.5rem) {
     .main-title {
         font-size: 2rem;
@@ -780,6 +769,6 @@ input:checked+.slider:before {
     }
 
     .weather-forecast {
-        grid-template-columns: 1fr 1fr; /* На совсем крошечных экранах лучше 2 в ряд */
+        grid-template-columns: 1fr 1fr; 
     }
 }
